@@ -1,0 +1,84 @@
+{
+  "exact_comparison": {
+    "(1,3)": {
+      "risk_signs": "10783/31250",
+      "risk_margins": "10783/31250",
+      "value": "0"
+    },
+    "(1,5)": {
+      "risk_signs": "89/250",
+      "risk_margins": "2697019/7812500",
+      "value": "84231/7812500"
+    }
+  },
+  "bounds": [
+    {
+      "q": 0.0001,
+      "lower": {
+        "q": 0.0001,
+        "m": 3,
+        "p_diff": 0.00039988001599916556,
+        "posterior_odds_bound": 0.025602558975639414,
+        "lower_excess_risk": 0.00023992800959949937
+      },
+      "upper": {
+        "q": 0.0001,
+        "w": 53,
+        "upper_excess_risk": 0.003223150108594398
+      },
+      "asymptotic_leading": 0.0006643856189774724
+    },
+    {
+      "q": 1e-06,
+      "lower": {
+        "q": 1e-06,
+        "m": 4,
+        "p_diff": 4.999979999920079e-06,
+        "posterior_odds_bound": 0.001280001279960341,
+        "lower_excess_risk": 2.999987999952048e-06
+      },
+      "upper": {
+        "q": 1e-06,
+        "w": 77,
+        "upper_excess_risk": 4.677389141914929e-05
+      },
+      "asymptotic_leading": 9.965784284662085e-06
+    },
+    {
+      "q": 1e-08,
+      "lower": {
+        "q": 1e-08,
+        "m": 6,
+        "p_diff": 6.99999957443076e-08,
+        "posterior_odds_bound": 0.00028672000263908325,
+        "lower_excess_risk": 4.1999997446584564e-08
+      },
+      "upper": {
+        "q": 1e-08,
+        "w": 103,
+        "upper_excess_risk": 6.233251464479536e-07
+      },
+      "asymptotic_leading": 1.328771237954945e-07
+    },
+    {
+      "q": 1e-10,
+      "lower": {
+        "q": 1e-10,
+        "m": 8,
+        "p_diff": 9.000000744663339e-10,
+        "posterior_odds_bound": 5.898240493330993e-05,
+        "lower_excess_risk": 5.400000446798004e-10
+      },
+      "upper": {
+        "q": 1e-10,
+        "w": 129,
+        "upper_excess_risk": 7.789412107841214e-09
+      },
+      "asymptotic_leading": 1.6609640474436811e-09
+    }
+  ],
+  "alpha_threshold_claim": {
+    "alpha": 0.8535533905932737,
+    "2delta_squared_at_claim": 0.25
+  }
+}
