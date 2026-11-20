@@ -1,27 +1,30 @@
-# Estudo 002 — DATE
+# Study 002 — DATE
 
-**Status:** hipótese empírica aberta; estudo de engenharia suspenso. Nenhum algoritmo DATE foi validado end-to-end.
+**Status:** The original DATE engineering direction is suspended. The H-DATE-2 mathematical follow-up is closed, with no claim of a novel general-purpose cache algorithm.
 
-Artigo científico completo: [paper.md](paper.md).
+## Research documents
 
-O diagnóstico investiga se a magnitude das margens acrescenta informação ao par de decisões binárias dos horizontes curto/longo e ao feedback agregado. Uma identidade de teoria da decisão é demonstrada, mas o valor empírico não foi estabelecido.
+- [Original DATE exploratory paper](paper.md) — temporal frequency-estimator selection, synthetic diagnostic, negative/inconclusive outcomes, and experimental limitations.
+- [H-DATE-2 final mathematical working paper](h-date-2/paper.md) — exact HMM results, counterexamples, literature audit and closeout.
+- [H-DATE-2 reproducibility guide](h-date-2/REPRODUCIBILITY.md) — independent code and evidence.
+- [H-DATE-2 claim ledger](h-date-2/data/claims.csv) — proved, certified, refuted and open claims.
 
-## Reprodução do diagnóstico sintético
+## Original synthetic diagnosis
+
+The original study used two decayed Count-Min Sketch horizons and compared sign/feedback features against margin features. Its offline static-swap loss is **not** end-to-end cache miss cost. Twelve scenario/seed runs were exploratory and did not establish a stable improvement. No public trace evaluation or faithful upstream W-TinyLFU integration was completed.
+
+Original code: [code](code/). Original data: [data](data/). Do not treat the pre-holdout instrumentation as a production integration.
+
+## H-DATE-2 conclusion
+
+A finite symmetric binary HMM provides a valid example where margin magnitudes have strictly positive **Bayes decision value** after conditioning on the two decision signs. However, this result is model-specific, and larger feature value need not lead to lower total risk across different window pairs.
+
+Crucially, the optimal rare-transition filtering rate of order `q log(1/q)` was established in prior literature (Khasminskii–Zeitouni 1996; Nair–Ordentlich–Weissman 2005). The mathematical follow-up was therefore closed as a research exploration rather than presented as a new algorithm or previously undiscovered asymptotic theorem.
+
+Run the maintained H-DATE-2 checks:
 
 ```bash
-python -m pip install numpy scikit-learn pytest
-cd research/002-date/code
-OPENBLAS_NUM_THREADS=1 python diagnostic.py --t 30000 --n 10000 --seeds 3 --output ../data/reproduction_local.json
+cd research/002-date/h-date-2
+python -m pip install -r requirements.txt
+PYTHONPATH=code python -m unittest discover -s tests -v
 ```
-
-Resultados históricos: [data/results_synthetic.json](data/results_synthetic.json) e [data/bootstrap_exploratory.json](data/bootstrap_exploratory.json).
-
-Foram executadas 12 combinações de cenário e semente, com perdas contrafactuais offline; nenhuma evidência estável demonstrou ganho do controlador C3. A instrumentação C do W-TinyLFU upstream não foi compilada nem validada integralmente. Nenhum trace público foi usado para validar DATE.
-
-### Componentes isolados
-
-- `code/extract_prefix.py`: extrator binário de `oracleGeneral`, com sanitização de `next_access_vtime`.
-- `code/date_admission_log.h` e `code/apply_logger.py`: logger C e patcher **não integrados nem validados** contra W-TinyLFU upstream.
-- `code/stats.py`: análise bootstrap para ganho mínimo, sujeita a hipóteses de dependência temporal.
-
-**Não tratar esses módulos como prova de competitividade operacional.**
