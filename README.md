@@ -1,54 +1,49 @@
 # Adaptive Systems Research
 
-**Pesquisa experimental em algoritmos online, estruturas de dados probabilísticas, políticas de cache e sistemas adaptativos.**
+A repository for reproducible explorations in **online algorithms, probabilistic data structures, caching decisions, temporal estimation, and adaptive systems**.
 
-Repositório de estudos reproduzíveis, com artigos científicos, implementações, dados experimentais, testes e registro explícito de limitações e resultados negativos. O objetivo é distinguir correção matemática, evidência empírica e viabilidade de engenharia.
+Each study separates mathematical claims, experimental results, implementation artifacts, prior work, unresolved questions, and practical applicability. Negative results are preserved.
 
-> **Status científico:** os estudos disponíveis são manuscritos exploratórios, não revisados por pares. Não existe alegação de descoberta inédita, superioridade sobre W-TinyLFU/Evolving Sketch ou validação em traces públicos.
+> **Research status:** The papers are exploratory working reports, not peer-reviewed articles. No production-cache improvement or original rare-transition filtering rate has been demonstrated.
 
-## Estudos
+## Research index
 
-| ID | Estudo | Questão central | Evidência | Estado |
+| ID | Study | Central question | Evidence | Status |
 |:--|:--|:--|:--|:--|
-| **001 — CABS** | [Certificação histórica de admissão em cache](research/001-cabs/paper.md) | Certificados de dominância histórica reduzem misses futuros? | Invariantes formais; 60 execuções sintéticas; 7 testes; regressão de 8,38% sob drift rápido | Encerrado como linha principal |
-| **002 — DATE** | [Valor das magnitudes de margem](research/002-date/paper.md) | Magnitudes acrescentam valor decisório aos sinais e feedback agregado? | Identidade de valor informacional; 12 execuções sintéticas; resultados inconclusivos | Hipótese aberta; linha suspensa |
+| 001 | [CABS — Historical certificates for cache admission](research/001-cabs/paper.md) | Does strict historical-frequency certification reduce future miss cost? | Formal invariants; 60 synthetic policy/workload/seed runs; 7 tests; +8.38% cost under fast drift versus the closest point-estimate baseline | **Closed as a principal algorithmic direction** |
+| 002 | [DATE — Decision-aware temporal estimation](research/002-date/paper.md) | Do decision-margin magnitudes improve temporal estimator selection beyond feedback and decision signs? | Twelve synthetic scenario/seed trials; exploratory evidence was inconclusive | **Engineering direction suspended** |
+| 002A | [H-DATE-2 — Margin information and temporal windows](research/002-date/h-date-2/paper.md) | When do magnitude features have Bayes decision value, and what window choices minimize risk? | Exact rational HMM enumeration; counterexamples; certified interval analysis; published-prior-art audit | **Closed; theoretical exploratory follow-up** |
 
-## Estrutura
+## Research materials
+
+- **H-DATE-2 manuscript:** [paper](research/002-date/h-date-2/paper.md) · [reproducibility](research/002-date/h-date-2/REPRODUCIBILITY.md) · [code and tests](research/002-date/h-date-2/) · [claim ledger](research/002-date/h-date-2/data/claims.csv).
+- **CABS manuscript and code:** [study 001](research/001-cabs/).
+- **DATE synthetic diagnosis and code:** [study 002](research/002-date/).
+- **Research standards:** [Experimental research protocol](docs/research-protocol.md).
+
+### H-DATE-2: key distinction
+
+The incremental value of margin features is the **difference in Bayes risks for the same window pair**:
 
 ```text
-adaptive-systems-research/
-├── README.md
-├── docs/
-│   └── research-protocol.md
-├── research/
-│   ├── 001-cabs/
-│   │   ├── paper.md
-│   │   ├── README.md
-│   │   ├── code/cabs/
-│   │   ├── tests/
-│   │   └── data/benchmarks_reproduced.json
-│   └── 002-date/
-│       ├── paper.md
-│       ├── README.md
-│       ├── code/
-│       ├── tests/
-│       └── data/
-├── assets/
-└── papers/                  # PDF e DOCX derivados dos manuscritos
+V_M = R(signs only) - R(signs and magnitudes)
 ```
 
-## Como reproduzir
+It is not the end-to-end cache improvement and is not a fair objective for comparing different window pairs without accounting for their changing baseline risk.
 
-A reprodução de cada estudo começa em seu próprio `README.md`. Os experimentos são executáveis em CPU sem GPU e não requerem APIs pagas. As métricas exploratórias não substituem testes confirmatórios. Código e resultados são preservados sem modificar históricos para favorecer novas hipóteses.
+The key rare-transition state-filtering asymptotic is **prior art**: Khasminskii and Zeitouni (1996) and Nair, Ordentlich and Weissman (2005), *Asymptotic Filtering and Entropy Rate of a Hidden Markov Process in the Rare Transitions Regime*, [DOI: 10.1109/ISIT.2005.1523663](https://doi.org/10.1109/ISIT.2005.1523663).
 
-## Protocolo para novos estudos
+## Reproduce the H-DATE-2 checks
 
-Consultar [docs/research-protocol.md](docs/research-protocol.md) antes de iniciar outra pesquisa. Cada estudo deve começar com literatura e um problema falsificável, avançar para reprodução de baselines, pré-registrar comparações, e divulgar também resultados negativos e limitações.
+```bash
+cd research/002-date/h-date-2
+python -m pip install -r requirements.txt
+PYTHONPATH=code python -m unittest discover -s tests -p 'test_*.py' -v
+python code/certify_monotonic_width.py --intervals 128
+```
 
-## Publicações
+## Scientific publication policy
 
-Os arquivos `.md` são as fontes editáveis canônicas. Versões PDF/DOCX, quando presentes em `papers/`, são derivadas dessas fontes. Dados de produção de terceiros não são redistribuídos sem verificação de licença.
+The canonical sources are Markdown documents with code, deterministic outputs, and explicit bibliographic provenance. Historical rendered exports may reflect older manuscript versions; prefer the linked Markdown sources for the current research status. Do not claim that scripts or exact calculations constitute independent novelty validation.
 
-## Licenças
-
-A definição de licenças de reutilização para código e manuscritos permanece pendente. A disponibilização pública não implica, por si só, autorização irrestrita de redistribuição ou modificação.
+**Licensing:** Reuse permissions for this research collection have not yet been specified in a repository license. Public availability alone does not grant broad reuse rights.
