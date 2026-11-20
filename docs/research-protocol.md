@@ -1,43 +1,51 @@
-# Protocolo de pesquisa experimental
+# Experimental Research Protocol
 
-## 1. Definição do problema
+## 1. Formulate a falsifiable question
 
-Registrar **ID**, pergunta falsificável, hipótese nula, alternativa, estado da literatura, custos do problema, métricas e critérios claros de encerramento. Diferenciar novo mecanismo, nova informação, ablação e reprodução de resultado existente. Não reivindicar novidade sem auditoria de trabalhos relacionados.
+For each study, document its ID, precise estimand, null and alternative hypotheses, claimed novelty, relevant prior work, eligible workloads, computational budget, and clear success or stop criteria **before** interpreting results. Separate algorithm novelty, analysis, replication and engineering variations.
 
-## 2. Hierarquia de evidência
+## 2. Evidence hierarchy
 
-1. Proposições matemáticas com hipóteses, demonstração e escopo explícitos.
-2. Testes unitários e de propriedades para a implementação.
-3. Benchmark sintético exploratório, separado do resultado confirmatório.
-4. Reprodução de baselines fiéis do estado da arte.
-5. Experimento confirmatório em traces públicos reservados, com parâmetros congelados.
-6. Reprodução independente, orçamento de memória e CPU equalizados.
+1. Precisely scoped propositions with explicit assumptions and proofs.
+2. Implementation invariants, property-based tests and exact numerical checks where applicable.
+3. Synthetic exploratory benchmarks, labeled as exploratory.
+4. Faithful independent baselines with pinned upstream versions.
+5. Pre-registered comparisons on public traces or suitable held-out datasets.
+6. Independent reproduction, transparent resource accounting and external review.
 
-## 3. Causalidade online
+## 3. Causal temporal validation
 
-Nenhuma feature ou decisão em `t` pode acessar solicitações ou labels de `t+1` em diante. A avaliação contrafactual offline deve ser isolada do estado online. O mesmo conjunto de oportunidades e a mesma política geradora devem ser utilizados quando a pergunta for apenas sobre o valor de informação de um sinal.
+A feature used at time `t` must not depend on labels or observations later than `t`. Offline counterfactual labels must be constructed **after** logging causal opportunities. In dynamic caches, a local one-step replacement loss is not the counterfactual total loss of two diverging cache policies. Distinguish static one-swap labels from full trajectories.
 
-## 4. Comparações justas
+## 4. Fair comparisons
 
-- Mesma capacidade física e modelo de custo em todas as políticas.
-- Igualdade ou contabilização transparente de **metadados em bytes**, incluindo estruturas auxiliares e parâmetros dos modelos.
-- Tempo de CPU medido na mesma implementação e equipamento; não comparar timings Python com bibliotecas nativas como equivalentes.
-- Baselines com versões e commits fixados; implementar fielmente regiões de janela, admissão e estruturas internas quando relevante.
-- Escolher o comparador principal em desenvolvimento e não modificá-lo depois de observar o holdout.
+- Match physical cache capacity and loss models.
+- Report all online metadata in **bytes**, including feature trackers and controller parameters.
+- Measure CPU on comparable implementations and hardware; Python timing is not a substitute for native performance measurements.
+- Pin exact baseline commits, configuration, seeds, and workload preprocessing.
+- Include placebo and matched-capacity feature controls when testing information value.
+- Avoid changing the primary comparator after looking at held-out results.
 
-## 5. Estatística
+## 5. Statistical discipline
 
-- Definir o estimando (perda por oportunidade, hit rate ou custo total) antes da execução.
-- Para pares dependentes, preservar índice temporal e sobreposição de labels, preferindo métodos explicitamente apropriados a séries dependentes.
-- Não supor que bloco de comprimento H produz independência; não usar `n_eff=T/H` como regra universal.
-- Se o objetivo for superar uma melhoria mínima `r`, testar o limiar diretamente: `X=loss_treatment-(1-r)*loss_control`.
-- Usar avaliação de sensibilidade ao tamanho dos blocos e validar sua calibração em simulações específicas.
-- Distinguir ausência de rejeição estatística, equivalência e decisão de engenharia de interromper a pesquisa.
+Define the statistic and comparison before evaluating the holdout. For correlated losses and overlapping future labels, use a justified dependent-data method and sensitivity analyses. Do **not** assume block length equal to the label horizon implies independent blocks or that `effective_n = T/H` universally. For a required relative gain of `g`, formulate the null around `loss_treatment-(1-g)*loss_control`, not a zero-gain test. Distinguish confidence intervals, failure to reject, equivalence tests, and engineering stop decisions.
 
-## 6. Reprodutibilidade
+## 6. Exact mathematics and external results
 
-Guardar versões do código, parâmetros, sementes, formato de traces, comandos, hashes de subconjuntos, resultados brutos, testes e procedimento de análise. Documentar problemas conhecidos, validação não executada e decisões tomadas após resultados exploratórios. Não retirar execuções desfavoráveis.
+Separate proofs by hand from computer-assisted proofs with runnable certificates. Report which inequalities were checked by exact arithmetic and which approximations were merely numerical. Verify paper parameters and theorem hypotheses before claiming a new asymptotic rate. Reproduction of a previously published theorem must be cited as such.
 
-## 7. Estrutura de novos estudos
+## 7. Reproducibility archive
 
-Criar `research/NNN-slug/` com `paper.md`, `README.md`, `code/`, `tests/` e `data/`. A conclusão deve indicar separadamente: **demonstrado**, **observado**, **não testado**, **limitação** e **decisão de continuidade**.
+Store manifests, source code, tests, commands, dependence versions, random seeds, metadata budgets, raw outputs, observed failures, and license constraints. Retain negative results and unresolved concerns. Prefer self-contained source and public evidence to unsupported summaries.
+
+## 8. Study lifecycle
+
+Each new `research/NNN-slug/` should include:
+
+- `paper.md` — current scientific working manuscript;
+- `README.md` — status, commands and scope;
+- `code/` and `tests/` — implementations and checks;
+- `data/` — deterministic outputs and provenance;
+- `references.bib` and `CITATION.cff` when useful.
+
+A conclusion must state **proved**, **observed**, **not tested**, **refuted**, **open**, and **continuation decision** separately.
