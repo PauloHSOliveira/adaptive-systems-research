@@ -1,0 +1,81 @@
+version: '0.8-PREFLIGHT-NOT-FROZEN'
+state: preholdout
+source_catalog: https://github.com/cacheMon/cache_dataset
+license_collection: CC-BY-4.0
+source_code:
+  repository: https://github.com/cacheMon/libCacheSim
+  verified_code_ref: f7c85f8a538e62129e55e90c0ce4c0f605bd78ba
+  file: libCacheSim/cache/eviction/WTinyLFU.c
+  pending: instrumented_patch_and_differential_tests
+
+traces:
+  - id: twitter_cluster52_2020
+    source_url: https://ftp.pdl.cmu.edu/pub/datasets/twemcacheWorkload/cacheDatasets/twitter/cluster52.oracleGeneral.zst
+    source_full_sha256: null
+    subset_sha256: null
+    request_type_filter: 'oracleGeneral lacks operation field; cannot retroactively filter GET'
+    verified_listing: true
+  - id: wikimedia_2019_text
+    source_url: https://ftp.pdl.cmu.edu/pub/datasets/twemcacheWorkload/cacheDatasets/wiki/wiki_2019t.oracleGeneral.zst
+    source_full_sha256: null
+    subset_sha256: null
+    verified_listing: true
+  - id: metacdn_2023_reag
+    source_url: https://ftp.pdl.cmu.edu/pub/datasets/twemcacheWorkload/cacheDatasets/metaCDN/meta_reag.oracleGeneral.zst
+    source_full_sha256: null
+    subset_sha256: null
+    verified_listing: true
+
+subset:
+  format: oracleGeneral_packed_24_bytes
+  source_record: [timestamp_u32, object_id_u64, object_size_u32, next_access_vtime_i64]
+  size_override: 1
+  next_access_vtime_override: -2
+  number_of_records: 910000
+  warmup: 100000
+  train: 400000
+  embargo: 10000
+  holdout: 400000
+  order: original_unmodified
+  source_full_sha256_required: false
+  subset_hash_required_before_holdout: true
+
+cache:
+  algorithm: WTinyLFU
+  main_cache: SLRU
+  physical_slots: 10000
+  window_fraction: 0.01
+  metadata_accounting_bytes: null
+  consider_obj_metadata: false
+  doorkeeper: absent_in_pinned_implementation
+  cbf_entries_expected: 9900
+  cbf_error: 0.001
+  equivalence_tests_complete: false
+
+estimators:
+  short_horizon: 64
+  long_horizon: 512
+  evaluation_horizon: 32
+  online_budget_bytes: null
+  online_budget_frozen: false
+
+statistics:
+  main_estimand: mean_loss_per_opportunity
+  pairwise_target: C3_minus_frozen_control
+  block_selection: development_only_and_predeclared
+  methods: moving_block_bootstrap_paired
+  sensitivity_block_multipliers: [0.5, 1, 2]
+  bootstrap_replicates: 1000
+  success_min_effect_relative: 0.02
+  success_on_min_traces: 2
+  multiplicity: partial_conjunction_bonferroni_2_of_3
+  partial_conjunction_alpha: 0.05
+  no_access_to_holdout_until_frozen: true
+
+unresolved:
+  - source_subsets_not_acquired_or_hashed
+  - libCacheSim_C_patch_not_applied_or_differentially_verified
+  - online_metadata_budget_not_frozen
+  - development_only_block_selection_not_implemented_and_tested
+  - model_selection_baseline_not_frozen
+  - source_license_attribution_to_original_papers_pending

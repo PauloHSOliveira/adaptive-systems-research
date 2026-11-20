@@ -1,0 +1,930 @@
+{
+  "scope": "EXPLORATORY_SYNTHETIC_PAIRED_BLOCK_BOOTSTRAP_ONLY",
+  "not_claimed": "NO_PUBLIC_TRACES_NO_END_TO_END_NO_VALIDATED_WTINYLFU",
+  "rows": [
+    {
+      "scenario": "stationary",
+      "seed": 41,
+      "n_test_events": 2139,
+      "bootstrap": {
+        "margin_minus_base": {
+          "128": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2139,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2139,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2139,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        },
+        "margin_minus_placebo": {
+          "128": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2139,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2139,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2139,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        }
+      }
+    },
+    {
+      "scenario": "stationary",
+      "seed": 42,
+      "n_test_events": 2247,
+      "bootstrap": {
+        "margin_minus_base": {
+          "128": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2247,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2247,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2247,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        },
+        "margin_minus_placebo": {
+          "128": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2247,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2247,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2247,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        }
+      }
+    },
+    {
+      "scenario": "stationary",
+      "seed": 43,
+      "n_test_events": 2082,
+      "bootstrap": {
+        "margin_minus_base": {
+          "128": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2082,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2082,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2082,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        },
+        "margin_minus_placebo": {
+          "128": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2082,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2082,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2082,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        }
+      }
+    },
+    {
+      "scenario": "uniform",
+      "seed": 41,
+      "n_test_events": 5907,
+      "bootstrap": {
+        "margin_minus_base": {
+          "128": {
+            "delta_a_minus_b": 0.00038630111497842156,
+            "ci_low": 0.0,
+            "ci_high": 0.0011586189601813645,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 5907,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.00038630111497842156,
+            "ci_low": 0.0,
+            "ci_high": 0.0009904132912233262,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 5907,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.00038630111497842156,
+            "ci_low": 0.0,
+            "ci_high": 0.000773459899460168,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 5907,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        },
+        "margin_minus_placebo": {
+          "128": {
+            "delta_a_minus_b": 0.0005555917870623898,
+            "ci_low": 0.0,
+            "ci_high": 0.0013174231205848002,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 5907,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.0005555917870623898,
+            "ci_low": 0.0,
+            "ci_high": 0.0013147097573510842,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 5907,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.0005555917870623898,
+            "ci_low": 0.0,
+            "ci_high": 0.0009425471916656426,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 5907,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        }
+      }
+    },
+    {
+      "scenario": "uniform",
+      "seed": 42,
+      "n_test_events": 5905,
+      "bootstrap": {
+        "margin_minus_base": {
+          "128": {
+            "delta_a_minus_b": 0.00030870386711086,
+            "ci_low": 0.0,
+            "ci_high": 0.0009274191391976836,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 5905,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.00030870386711086,
+            "ci_low": 0.0,
+            "ci_high": 0.0009282770617897794,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 5905,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.00030870386711086,
+            "ci_low": 0.0,
+            "ci_high": 0.0009271046891820995,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 5905,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        },
+        "margin_minus_placebo": {
+          "128": {
+            "delta_a_minus_b": 0.000661788708863353,
+            "ci_low": 0.0,
+            "ci_high": 0.0015807489353836391,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 5905,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.000661788708863353,
+            "ci_low": 0.0,
+            "ci_high": 0.0014845559160839622,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 5905,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.000661788708863353,
+            "ci_low": 0.00016893901600673386,
+            "ci_high": 0.0013896700194190323,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 5905,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        }
+      }
+    },
+    {
+      "scenario": "uniform",
+      "seed": 43,
+      "n_test_events": 5912,
+      "bootstrap": {
+        "margin_minus_base": {
+          "128": {
+            "delta_a_minus_b": -0.00016914749661705008,
+            "ci_low": -0.0005084164328968034,
+            "ci_high": 0.0,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 5912,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": -0.00016914749661705008,
+            "ci_low": -0.0005073373691952314,
+            "ci_high": 0.0,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 5912,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": -0.00016914749661705008,
+            "ci_low": -0.0006768189509306261,
+            "ci_high": 0.0,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 5912,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        },
+        "margin_minus_placebo": {
+          "128": {
+            "delta_a_minus_b": 7.497796473290067e-05,
+            "ci_low": -0.0010560414539600022,
+            "ci_high": 0.0011050060252866182,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 5912,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 7.497796473290067e-05,
+            "ci_low": -0.0010647900997440595,
+            "ci_high": 0.0011992183205247477,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 5912,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 7.497796473290067e-05,
+            "ci_low": -0.0008752238767302368,
+            "ci_high": 0.0015343835896237169,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 5912,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        }
+      }
+    },
+    {
+      "scenario": "shift",
+      "seed": 41,
+      "n_test_events": 2139,
+      "bootstrap": {
+        "margin_minus_base": {
+          "128": {
+            "delta_a_minus_b": -0.002991123957690056,
+            "ci_low": -0.010080965056742192,
+            "ci_high": 0.0,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2139,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": -0.002991123957690056,
+            "ci_low": -0.008106960766648673,
+            "ci_high": 0.0,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2139,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": -0.002991123957690056,
+            "ci_low": -0.007947512074458167,
+            "ci_high": 0.0,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2139,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        },
+        "margin_minus_placebo": {
+          "128": {
+            "delta_a_minus_b": -0.002523615776296882,
+            "ci_low": -0.008975541141501446,
+            "ci_high": 0.0009272057845958546,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2139,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": -0.002523615776296882,
+            "ci_low": -0.00804665124292863,
+            "ci_high": 0.0009164868363362177,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2139,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": -0.002523615776296882,
+            "ci_low": -0.007485287318190943,
+            "ci_high": 0.0009564717999453308,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2139,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        }
+      }
+    },
+    {
+      "scenario": "shift",
+      "seed": 42,
+      "n_test_events": 2247,
+      "bootstrap": {
+        "margin_minus_base": {
+          "128": {
+            "delta_a_minus_b": 0.0004450378282153983,
+            "ci_low": 0.0,
+            "ci_high": 0.0016605190436140835,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2247,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.0004450378282153983,
+            "ci_low": 0.0,
+            "ci_high": 0.0018160691894278263,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2247,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.0004450378282153983,
+            "ci_low": 0.0,
+            "ci_high": 0.0013928858887541453,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2247,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        },
+        "margin_minus_placebo": {
+          "128": {
+            "delta_a_minus_b": 0.0013536985259975888,
+            "ci_low": 0.0,
+            "ci_high": 0.003569569750579321,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2247,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.0013536985259975888,
+            "ci_low": 0.0,
+            "ci_high": 0.004129945042394868,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2247,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.0013536985259975888,
+            "ci_low": 0.0,
+            "ci_high": 0.003172059989244863,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2247,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        }
+      }
+    },
+    {
+      "scenario": "shift",
+      "seed": 43,
+      "n_test_events": 2082,
+      "bootstrap": {
+        "margin_minus_base": {
+          "128": {
+            "delta_a_minus_b": 0.0004803073967339097,
+            "ci_low": 0.0,
+            "ci_high": 0.0018047561556053472,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2082,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.0004803073967339097,
+            "ci_low": 0.0,
+            "ci_high": 0.001478868383326982,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2082,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.0004803073967339097,
+            "ci_low": 0.0,
+            "ci_high": 0.0014517653414123106,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2082,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        },
+        "margin_minus_placebo": {
+          "128": {
+            "delta_a_minus_b": 0.0004803073967339097,
+            "ci_low": 0.0,
+            "ci_high": 0.0018047561556053472,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2082,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.0004803073967339097,
+            "ci_low": 0.0,
+            "ci_high": 0.001478868383326982,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2082,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.0004803073967339097,
+            "ci_low": 0.0,
+            "ci_high": 0.0014517653414123106,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2082,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        }
+      }
+    },
+    {
+      "scenario": "cycling",
+      "seed": 41,
+      "n_test_events": 2254,
+      "bootstrap": {
+        "margin_minus_base": {
+          "128": {
+            "delta_a_minus_b": 0.001077552895161583,
+            "ci_low": 0.0,
+            "ci_high": 0.002823155127820805,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2254,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.001077552895161583,
+            "ci_low": 0.0,
+            "ci_high": 0.0028610712382484676,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2254,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.001077552895161583,
+            "ci_low": 0.0,
+            "ci_high": 0.0025791694542393988,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2254,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        },
+        "margin_minus_placebo": {
+          "128": {
+            "delta_a_minus_b": 0.00044365572315882877,
+            "ci_low": 0.0,
+            "ci_high": 0.0013345718563642067,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2254,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": 0.00044365572315882877,
+            "ci_low": 0.0,
+            "ci_high": 0.001389876439731407,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2254,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": 0.00044365572315882877,
+            "ci_low": 0.0,
+            "ci_high": 0.0013546640856853239,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2254,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        }
+      }
+    },
+    {
+      "scenario": "cycling",
+      "seed": 42,
+      "n_test_events": 2355,
+      "bootstrap": {
+        "margin_minus_base": {
+          "128": {
+            "delta_a_minus_b": -0.0005610879117125549,
+            "ci_low": -0.0017329597213877712,
+            "ci_high": 0.0,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2355,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": -0.0005610879117125549,
+            "ci_low": -0.0017186054873425756,
+            "ci_high": 0.0,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2355,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": -0.0005610879117125549,
+            "ci_low": -0.0017074255654182262,
+            "ci_high": 0.0,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2355,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        },
+        "margin_minus_placebo": {
+          "128": {
+            "delta_a_minus_b": -0.0014279317445439238,
+            "ci_low": -0.003998924444032387,
+            "ci_high": 0.0,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2355,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": -0.0014279317445439238,
+            "ci_low": -0.0035465703054128354,
+            "ci_high": 0.0,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2355,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": -0.0014279317445439238,
+            "ci_low": -0.0035558739273147794,
+            "ci_high": 0.0,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2355,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        }
+      }
+    },
+    {
+      "scenario": "cycling",
+      "seed": 43,
+      "n_test_events": 2190,
+      "bootstrap": {
+        "margin_minus_base": {
+          "128": {
+            "delta_a_minus_b": -0.0004832515205820174,
+            "ci_low": -0.0014573600614665298,
+            "ci_high": 0.0,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2190,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": -0.0004832515205820174,
+            "ci_low": -0.001472993095009773,
+            "ci_high": 0.0,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2190,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": -0.0004832515205820174,
+            "ci_low": -0.001480384095344422,
+            "ci_high": 0.0,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2190,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        },
+        "margin_minus_placebo": {
+          "128": {
+            "delta_a_minus_b": -0.0012275326992378652,
+            "ci_low": -0.0028773477044998145,
+            "ci_high": 0.0,
+            "block_length": 128,
+            "n_boot": 250,
+            "opportunities": 2190,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "256": {
+            "delta_a_minus_b": -0.0012275326992378652,
+            "ci_low": -0.0029581101962241805,
+            "ci_high": 0.0,
+            "block_length": 256,
+            "n_boot": 250,
+            "opportunities": 2190,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          },
+          "512": {
+            "delta_a_minus_b": -0.0012275326992378652,
+            "ci_low": -0.0033900043991078673,
+            "ci_high": 0.0,
+            "block_length": 512,
+            "n_boot": 250,
+            "opportunities": 2190,
+            "request_span": 5968,
+            "method": "moving_block_bootstrap_overlapping_candidate_blocks",
+            "interpretation": "exploratory conditional on segment, not cross-trace generalization"
+          }
+        }
+      }
+    }
+  ]
+}
