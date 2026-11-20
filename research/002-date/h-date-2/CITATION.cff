@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If citing the exploratory H-DATE-2 report, please also cite Nair, Ordentlich and Weissman (2005) for the rare-transition filtering asymptotic."
+type: report
+title: "Decision-Margin Information and Temporal Window Selection in a Binary Hidden Markov Model: Exact Counterexamples, Risk Bounds, and a Literature-Based Negative Novelty Assessment"
+authors:
+  - family-names: Oliveira
+    given-names: Paulo H. S.
+repository-code: "https://github.com/PauloHSOliveira/adaptive-systems-research"
+date-released: "2026-11-20"
+version: "1.0.0"
+abstract: "Exploratory mathematical working report on the Bayes value of decision-margin magnitudes in a finite binary HMM; not peer reviewed."
