@@ -1,0 +1,12 @@
+claim_id,claim,status,primary_evidence,scope
+C01,"M in sigma(Z) implies zero incremental Bayes value",proven,"paper Section 3.2",general conditional expectation
+C02,"V_M(0.8,0.9;1,5) equals 84231/7812500",exact,"test_round6.py and exact_window_certificates.py",stationary symmetric binary HMM
+C03,"V_M(0.8,0.6;1,5) equals zero",exact,"round2_exact_results.json",same toy HMM
+C04,"Window-pair risk is always unimodal",refuted,"test_round8.py",counterexample alpha 0.6 and r 0.9
+C05,"Higher incremental V_M implies lower total window risk",refuted,"test_round8.py",counterexample alpha 0.8 and r 0.9
+C06,"Window 1 is Bayes optimal when r <= alpha",proven,"paper Section 7",symmetric binary HMM one-step
+C07,"Persistence-interval width is strictly decreasing with alpha for windows 1 and 5",computer-assisted,"certify_monotonic_width.py",requires independent certificate-code review
+C08,"Optimal rare-transition filtering rate q log(1/q) is original to this work",refuted,"Nair et al. 2005 Theorem 3.1",published prior work
+C09,"Two-window risk can approach state-aware oracle at O(q)",refuted,"Nair et al. 2005 asymptotic and paper Section 8",fixed noisy alpha
+C10,"Two-window excess relative to full-history optimal filtering is O(q)",open,"paper Section 9.2",requires precise controller and memory class
+C11,"Physical cache hit-rate improvement",not_tested,"paper Section 9.3",no cache trace or stateful implementation
