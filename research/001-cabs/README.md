@@ -1,12 +1,14 @@
-# Estudo 001 — CABS
+# Study 001 — CABS
 
-**Status:** protótipo experimental encerrado como linha algorítmica principal.
+**Status:** Completed as an exploratory study. Development was stopped as a principal algorithmic research direction.
 
-Artigo científico completo: [paper.md](paper.md).
+See [the scientific working paper](paper.md), [reference implementation](code/cabs/), [tests](tests/) and [reproduced synthetic results](data/benchmarks_reproduced.json).
 
-O código verifica uma política de admissão baseada em intervalos de Weighted Space-Saving, comparada a uma política pontual que compartilha estimador e metadados. Os limites garantem preferência **histórica**, não superioridade de misses futuros.
+CABS uses the condition `lower(candidate) > upper(victim)` to certify dominance of **historical weighted frequency** at a fixed state and epoch. The certificate does not imply better future cache behavior. The closest point-estimate baseline uses the same Weighted Space-Saving estimator and resident metadata; it is **not** a faithful W-TinyLFU baseline.
 
-## Reprodução
+Across 4 synthetic workloads × 3 seeds × 5 policies (60 runs), CABS incurred **8.38% higher weighted miss cost** under fast hot-set drift relative to the point-estimate baseline; other comparisons showed small or mixed effects. The experimental generator named `reset_churn` did not enter its next phase within the 10,000-request run and cannot be presented as a tested multi-epoch reset scenario.
+
+## Reproduce
 
 ```bash
 cd research/001-cabs/code
@@ -14,6 +16,4 @@ PYTHONPATH=. python -m unittest discover -s ../tests -v
 PYTHONPATH=. python -m cabs.bench --n 10000 --seeds 3 --k 100 --m 500 --epoch 10000 --output ../data/reproduction_local.json
 ```
 
-Resultados primários: [data/benchmarks_reproduced.json](data/benchmarks_reproduced.json). Regressão observada no cenário de drift rápido: **+8,38%** de custo de misses em relação ao baseline pontual. Este é um resultado exploratório, com três sementes, e não demonstra dominância em geral. O cenário denominado `reset_churn` não chegou a trocar de fase em 10.000 requisições; esse limite é documentado no artigo.
-
-Código Python standard library somente. O baseline `point` **não** é W-TinyLFU fiel. O LFU exato mantém contagens globais e **não** é um ótimo offline.
+No public trace evaluation, memory-equalized production baseline, or statistically confirmatory superiority result is available. This is a scientifically useful negative result, not a universal impossibility theorem.
