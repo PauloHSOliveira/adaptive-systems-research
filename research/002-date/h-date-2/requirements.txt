@@ -1,0 +1,4 @@
+# Optional numerical cross-checks and rational-certificate root proposals.
+numpy>=1.26,<3
+scipy>=1.11,<2
+sympy>=1.12,<2
