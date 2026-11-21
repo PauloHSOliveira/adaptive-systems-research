@@ -6,6 +6,8 @@ This directory archives a mathematical investigation of whether candidate–vict
 
 ## Read first
 
+- [Corrected PDF (10 pages)](papers/H-DATE-2-Scientific-Report.pdf) — single section-numbering hierarchy, readable equations and tables.
+- [Print-ready Markdown source](papers/print-source.md) — removes hard-coded heading numbers; use Pandoc's --number-sections only once.
 - [Scientific working paper](paper.md) — definitions, proofs, exact risk tables, prior-art audit, open questions and a negative-novelty conclusion.
 - [Reproducibility guide](REPRODUCIBILITY.md) — environment, deterministic commands and known limits.
 - [References](references.bib) — BibTeX including the original 2005 filtering theorem.
