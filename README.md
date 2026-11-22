@@ -4,7 +4,7 @@ A repository for reproducible explorations in **online algorithms, probabilistic
 
 Each study separates mathematical claims, experimental results, implementation artifacts, prior work, unresolved questions, and practical applicability. Negative results are preserved.
 
-> **Research status:** The papers are exploratory working reports, not peer-reviewed articles. No production-cache improvement or original rare-transition filtering rate has been demonstrated.
+> **Research status:** The papers are exploratory working reports, not peer-reviewed articles. No production-cache improvement, original rare-transition filtering rate, or novel adversarial-streaming theorem has been demonstrated.
 
 ## Research index
 
@@ -13,12 +13,14 @@ Each study separates mathematical claims, experimental results, implementation a
 | 001 | [CABS — Historical certificates for cache admission](research/001-cabs/paper.md) | Does strict historical-frequency certification reduce future miss cost? | Formal invariants; 60 synthetic policy/workload/seed runs; 7 tests; +8.38% cost under fast drift versus the closest point-estimate baseline | **Closed as a principal algorithmic direction** |
 | 002 | [DATE — Decision-aware temporal estimation](research/002-date/paper.md) | Do decision-margin magnitudes improve temporal estimator selection beyond feedback and decision signs? | Twelve synthetic scenario/seed trials; exploratory evidence was inconclusive | **Engineering direction suspended** |
 | 002A | [H-DATE-2 — Margin information and temporal windows](research/002-date/h-date-2/paper.md) | When do magnitude features have Bayes decision value, and what window choices minimize risk? | Exact rational HMM enumeration; counterexamples; certified interval analysis; published-prior-art audit | **Closed; theoretical exploratory follow-up** |
+| 003 | [Adversarially Robust Streaming Algorithms](research/003-adversarial-streaming/paper.md) | Do point queries, combinatorial outputs, or low-memory adversaries yield new robustness theorems? | Corrected constructive counterexamples; explicit-list churn; exact random-walk recurrences and concentration; claim ledger | **Closed; negative / exploratory; no novel theorem** |
 
 ## Research materials
 
 - **H-DATE-2 manuscript:** [paper](research/002-date/h-date-2/paper.md) · [reproducibility](research/002-date/h-date-2/REPRODUCIBILITY.md) · [code and tests](research/002-date/h-date-2/) · [claim ledger](research/002-date/h-date-2/data/claims.csv).
 - **CABS manuscript and code:** [study 001](research/001-cabs/).
 - **DATE synthetic diagnosis and code:** [study 002](research/002-date/).
+- **Study 003 (closed):** [technical report](research/003-adversarial-streaming/paper.md) · [claim ledger](research/003-adversarial-streaming/CLAIMS.md) · [reproducibility checks](research/003-adversarial-streaming/README.md).
 - **Research standards:** [Experimental research protocol](docs/research-protocol.md).
 
 ### H-DATE-2: key distinction
