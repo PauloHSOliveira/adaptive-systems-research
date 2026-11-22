@@ -9,6 +9,7 @@
 - [Claim ledger](CLAIMS.md) — ten-round traceability and rejected assertions.
 - [Exact-math verifier](code/verify_report.py) — verifies the reflected-walk first/second-moment recurrences and the explicit-list churn example without third-party packages.
 - [Unit tests](tests/test_report.py) — small deterministic consistency checks.
+- [Verification record](data/verification.json) — local exact-arithmetic values and explicit execution limitations.
 
 ## Reproduce the checks
 
