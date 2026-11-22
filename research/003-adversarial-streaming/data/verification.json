@@ -1,0 +1,65 @@
+{
+  "study": "003",
+  "evidence_type": "exact arithmetic consistency checks",
+  "generated_date": "2026-11-22",
+  "provenance": "Assistant local Python 3 runtime; finite formula/recurrence checks, not remote GitHub CI",
+  "scope": "Closed-form moments for reflected random walk, small H; explicit heavy-hitter churn construction",
+  "execution": {
+    "reflected_walk_recurrences": "PASS for H=1..50 using Fraction",
+    "heavy_hitter_churn": "PASS for k=2..100 using Fraction",
+    "chebyshev_target_parameters": "PASS for representative scales H=10,100,200",
+    "repository_workflow": "NOT RUN: GitHub clone unavailable due to DNS/network restrictions",
+    "streaming_or_attack_simulations": "NOT RUN"
+  },
+  "reflected_walk_moments": [
+    {
+      "H": 1,
+      "E_T": 1,
+      "E_T2": "1",
+      "variance": "0"
+    },
+    {
+      "H": 2,
+      "E_T": 4,
+      "E_T2": "24",
+      "variance": "8"
+    },
+    {
+      "H": 3,
+      "E_T": 9,
+      "E_T2": "129",
+      "variance": "48"
+    },
+    {
+      "H": 4,
+      "E_T": 16,
+      "E_T2": "416",
+      "variance": "160"
+    },
+    {
+      "H": 5,
+      "E_T": 25,
+      "E_T2": "1025",
+      "variance": "400"
+    },
+    {
+      "H": 6,
+      "E_T": 36,
+      "E_T2": "2136",
+      "variance": "840"
+    },
+    {
+      "H": 7,
+      "E_T": 49,
+      "E_T2": "3969",
+      "variance": "1568"
+    },
+    {
+      "H": 8,
+      "E_T": 64,
+      "E_T2": "6784",
+      "variance": "2688"
+    }
+  ],
+  "caveat": "These checks verify arithmetic only. They cannot validate originality, universal robustness, or performance."
+}
