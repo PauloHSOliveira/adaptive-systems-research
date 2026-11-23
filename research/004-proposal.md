@@ -167,7 +167,7 @@ Do not claim that controlling the honest-update multiset means the **realized** 
 
 [6] Edith Cohen, Jelani Nelson, Tamás Sarlós, Mihir Singhal and Uri Stemmer (2026), *One Attack to Rule Them All: Tight Quadratic Bounds for Adaptive Queries on Cardinality Sketches*, SODA. https://research.google/pubs/one-attack-to-rule-them-all-tight-quadratic-bounds-for-adaptive-queries-on-cardinality-sketches/
 
-[7] M. Lukats et al. (2024), *A benchmark and survey of fully unsupervised concept drift detectors on real-world data streams*. https://doi.org/10.1007/s41060-024-00620-y
+[7] Daniel Lukats, Oliver Zielinski, Axel Hahn and Frederic Stahl (2024), *A benchmark and survey of fully unsupervised concept drift detectors on real-world data streams*. https://doi.org/10.1007/s41060-024-00620-y
 
 ---
 
