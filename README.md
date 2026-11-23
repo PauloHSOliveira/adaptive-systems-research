@@ -21,7 +21,7 @@ Each study separates mathematical claims, experimental results, implementation a
 - **CABS manuscript and code:** [study 001](research/001-cabs/).
 - **DATE synthetic diagnosis and code:** [study 002](research/002-date/).
 - **Study 003 (closed):** [technical report](research/003-adversarial-streaming/paper.md) · [claim ledger](research/003-adversarial-streaming/CLAIMS.md) · [reproducibility checks](research/003-adversarial-streaming/README.md).
-- **Proposed study 004:** [Original proposal](research/004-proposal.md) · [G0 prior-art audit](research/004-gate0/PRIOR_ART_AUDIT.md) · [source matrix](research/004-gate0/SOURCE_MATRIX.csv). **G0 not passed; H4-A on hold pending reformulation and full KDD 2025 review. No G1 experiment approved.**
+- **Proposed study 004:** [Original proposal](research/004-proposal.md) · [G0 prior-art audit](research/004-gate0/PRIOR_ART_AUDIT.md) · [source matrix](research/004-gate0/SOURCE_MATRIX.csv). **G0 not passed; H4-A superseded by [H4-A2](research/004-gate0/H4-A2_REFORMULATION.md). The [KDD-related preprint audit](research/004-gate0/KDD_PREPRINT_AUDIT.md) supplies partial technical access but the final-paper provenance is unresolved. No G1 experiment approved.**
 - **Study 003 continuous verification:** [GitHub Actions workflow](.github/workflows/research-003-validation.yml) · [latest run](https://github.com/PauloHSOliveira/adaptive-systems-research/actions/workflows/research-003-validation.yml).
 - **Research standards:** [Experimental research protocol](docs/research-protocol.md).
 
