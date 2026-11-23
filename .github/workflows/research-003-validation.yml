@@ -1,0 +1,39 @@
+name: Research 003 — Exact verification
+
+on:
+  push:
+    paths:
+      - "research/003-adversarial-streaming/**"
+      - ".github/workflows/research-003-validation.yml"
+  pull_request:
+    paths:
+      - "research/003-adversarial-streaming/**"
+      - ".github/workflows/research-003-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-study-003:
+    name: Exact checks (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.13"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Verify report formulas
+        run: python research/003-adversarial-streaming/code/verify_report.py
+
+      - name: Run unit tests
+        run: python -m unittest discover -s research/003-adversarial-streaming/tests -p 'test_*.py' -v
