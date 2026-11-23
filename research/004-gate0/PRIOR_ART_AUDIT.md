@@ -2,7 +2,9 @@
 
 **Audit date:** 2026-11-23  
 **Hypothesis:** H4-A — workload ordering / abrupt frequency-distribution shift × public-feedback adaptivity for Count-Min Sketch (CMS).  
-**Gate decision:** **NOT PASSED — HOLD AND REFORMULATE**. No approval of originality or G1 implementation.  
+**Gate decision:** **NOT PASSED — HOLD AND REFORMULATE**. No approval of originality or G1 implementation.
+
+**Technical-text addendum (2026-11-23):** A complete but **anonymous** related Count-Min Sketch preprint is now accessible at [OpenReview](https://openreview.net/pdf?id=IuEBdNsWKb). Its value-based attacks, hashing assumptions and experiments have been examined in [KDD_PREPRINT_AUDIT.md](KDD_PREPRINT_AUDIT.md). Its identity with the final KDD 2025 article has **not** been authenticated. H4-A has been narrowed to [H4-A2, feedback-mediated terminal target error](H4-A2_REFORMULATION.md). The gate remains **NOT PASSED**. This addendum supplements (does not erase) the original access limitations below.  
 **Evidence:** Primary GitHub experiment scripts from CCS 2023 and NDSS 2026, published abstracts and available article text for KDD 2025 and NDSS 2023, and an algebraic structural check. No new benchmarks or independent replication ran in G0.
 
 This is a targeted audit, not an exhaustive systematic review. Failure to locate an experiment in the inspected source does not prove that the effect has never been published.
