@@ -17,6 +17,7 @@ keywords:
 # Research 004 — Experimental Audit of Adaptive Frequency Estimation
 
 **Stage:** Proposal / targeted prior-art audit. **No Research 004 experiment has yet been run.**  
+**G0 audit outcome (2026-11-23): NOT PASSED / HOLD.** The initial H4-A design is **not authorized for G1**. See the [pinned prior-art and experiment audit](004-gate0/PRIOR_ART_AUDIT.md) and [source comparison matrix](004-gate0/SOURCE_MATRIX.csv). The preliminary preference for H4-A below reflects the **pre-audit proposal** and is superseded by this G0 decision.  
 **Decision:** Prioritize candidate H4-A **conditionally**, after an upstream-experiment overlap check.  
 **Scientific claim:** None. The proposal defines testable questions, not new results.  
 **Scope:** Frequency sketches on insertion-only streams in the initial pilot. This is not a new result for general turnstile streams, \(F_0\), or all heavy-hitter detectors.
