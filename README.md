@@ -21,6 +21,8 @@ Each study separates mathematical claims, experimental results, implementation a
 - **CABS manuscript and code:** [study 001](research/001-cabs/).
 - **DATE synthetic diagnosis and code:** [study 002](research/002-date/).
 - **Study 003 (closed):** [technical report](research/003-adversarial-streaming/paper.md) · [claim ledger](research/003-adversarial-streaming/CLAIMS.md) · [reproducibility checks](research/003-adversarial-streaming/README.md).
+- **Proposed study 004:** [Experimental audit of adaptive frequency estimation — literature and hypotheses](research/004-proposal.md) (G0 prior-art validation pending; no experiment or novelty claim yet).
+- **Study 003 continuous verification:** [GitHub Actions workflow](.github/workflows/research-003-validation.yml) · [latest run](https://github.com/PauloHSOliveira/adaptive-systems-research/actions/workflows/research-003-validation.yml).
 - **Research standards:** [Experimental research protocol](docs/research-protocol.md).
 
 ### H-DATE-2: key distinction
