@@ -79,9 +79,25 @@ Proof. Write P for the joint law of (H,F) and Q for the product of its marginals
 
 This proposition uses established information-theoretic methods. v is concentration of the *terminal vector*, not a measure of private memory. For equal frequencies on s keys v=1/s.
 
+Two standard refinements are worth separating from the coarse closed forms. Directly applying the entropy variational inequality to the minimum gives
+\[
+ \mathbb E_P[Y]\le \inf_{t>0}\frac{I+\log\mathbb E_Q e^{tY}}{t}.
+\]
+Since Y<=Z, this is no weaker than the Hoeffding-based mean bound (also clip at one). Conditional on a fixed F under Q, the minimum has tail equal to the R-th power of the single-row tail. This refinement may be computationally expensive and requires the marginal law of F or a uniform bound on its moment generating function.
+
+For e>p and q_0=exp(-J), the exact binary-KL inversion yields
+\[
+ \Pr_P(Y\ge e)\le \sup\{u\in[q_0,1]:d_{\rm Ber}(u\|q_0)\le I\}.
+\]
+If the actual event probability is at most q_0 the claim is immediate; otherwise binary KL is nonincreasing in its second argument up to that actual probability, so the original data-processing inequality implies the displayed restriction. At I=0 the bound is q_0. For fixed I>0 as J tends to infinity, the inverse is asymptotic to I/J, not exponentially small: the coarse linear bound first gives u=O(1/J), hence binary entropy h(u)=o(1); then d_Ber(u||q_0)=uJ-h(u)-(1-u)log(1-q_0) implies limsup Ju<=I. Conversely u=I/J is admissible for sufficiently large J because h(I/J) dominates -log(1-q_0). These are statements about the information-theoretic upper bound, not the realized CMS tail. Neither refinement is claimed original.
+
 ### Proposition 2 (fixed-target transcript size)
 
-Suppose the scalar query times are fixed t_1<...<t_q<=M. Let t_0=0 and delta_i=t_i-t_(i-1). The scalar estimate increases by zero or one per unit insertion, so there are at most A=product_i(delta_i+1) feasible transcript values. Conditional on independent private coins U, the terminal vector is a deterministic function of the transcript. Consequently I(H;F)<=log A, and Proposition 1 applies with this ceiling.
+Suppose the scalar query times are fixed t_1<...<t_q<=M. Let t_0=0 and delta_i=t_i-t_(i-1). The scalar estimate increases by zero or one per unit insertion, so there are at most A=product_i(delta_i+1) feasible transcript values. Conditional on independent private coins U, the terminal vector is a deterministic function of the transcript. Writing T for the finite transcript, data processing and U independent of H give
+\[
+ I(H;F)\le I(H;U,T)=I(H;T\mid U)\le H(T\mid U)\le\log A.
+\]
+This proof does not require finite entropy of the complete private random tape. Proposition 1 applies with this ceiling.
 
 The same description-length argument gives the stronger tail transfer
 
@@ -89,7 +105,7 @@ The same description-length argument gives the stronger tail transfer
  \Pr(Y\ge e)\le\min\{1,A\exp[-2R(e-p)^2/v]\}.
 \]
 
-Indeed, for each fixed realization of the coins, at most A fixed terminal vectors are reachable. Union bound the ordinary fixed-vector tail over them and then average over the coins. There is no assumption that the realized vector is independent of H. For q=0 the transcript count is one. If the last query cannot influence F it may be omitted. By concavity log A<=q log(1+t_q/q) for q>0. This reasoning does not equate the adversary's private state size with mutual information of the complete stream. Adaptive times and uncounted side information require separate accounting.
+Indeed, for each fixed realization of the coins, at most A fixed terminal vectors are reachable. Union bound the ordinary fixed-vector tail over them and then average over the coins. There is no assumption that the realized vector is independent of H. For q=0 the transcript count is one. If the last query cannot influence F it may be omitted. By concavity log A<=q log(1+t_q/q) for q>0. This reasoning does not equate the adversary's private state size with mutual information of the complete stream. For example, with R=1 and M=2n, use n preassigned disjoint pairs of fresh candidate labels, one pair per two-update block. Query after every update. Insert the first label, then repeat it if it collided, otherwise insert the second label. The first collision indicator is recoverable from the change in parity of the cumulative target count; a previous parity bit suffices for that local observation. With the block schedule and labels supplied independently of H, a constant amount of private decision state suffices, yet F identifies all n independent Bernoulli(p) decisions and I(H;F)=n h_Ber(p) nats. The cap K=n is satisfied on every realization. This example uses a public schedule and does not claim constant total storage for generating arbitrary labels or storing an unbounded clock. Adaptive times and uncounted side information require separate accounting.
 
 ## 4. A row-wise stochastic envelope
 
@@ -108,7 +124,17 @@ For any admissible policy, Pr(MY>=z)<=T(z)^R. Set E=M^{-1} sum_{z=1}^M T(z)^R.
 
 Proof. Couple all fresh vectors as in Section 2. For row j let X_j be the number of collisions among the first L_0 vectors and J_j the first collision index among M vectors, infinity if none. If X_j>0, C_j<=X_j+K: at least L_0 distinct identifiers must be inserted and at most K updates remain. If X_j=0, the first J_j-1 distinct inserts (if reached) are noncollisions, so C_j<=M-J_j+1 if J_j is finite, and zero if not. Define W_j by these respective upper bounds. The row variables W_j are independent, regardless of the correlation among the actual adaptive counts C_j. For z<=K+1, W_j>=z exactly when J_j<=M-z+1. For z>K+1 it occurs exactly when X_j>=z-K. Taking the minimum across the independent envelope variables gives the result. QED.
 
+If X_j=0 and J_j>N, all realized identifiers are noncollisions in that row and C_j=0, even when J_j is finite. No conditioning on N or on a global policy-dependent variable is used in the independence of the W_j.
+
 For a real threshold e in (0,1] take z=ceil(Me). This strictly improves the earlier crude binomial repeat bound for 1<=z<=K (when K>0). For K=0 the distribution is exact in all rows.
+
+### Remark (a policy-dependent refinement without conditional independence)
+
+Let r_i denote the number of repeats of realized fresh identifier i and K_0=sum_{i:V_i=0} r_i, where zero means no collision in any row. The same counting proof gives C_j<=X_j+K-K_0 for every row. For integer z>K and fixed k in {0,...,K}, the event MY>=z is contained in the union of K_0<k and min_j X_j>=z-K+k. Consequently,
+\[
+ \Pr(MY\ge z)\le \min\{T(z)^R,\ \min_{0\le k\le K}[\Pr(K_0<k)+T(z+k)^R]\},
+\]
+with T(u)=0 for u>M. The second term is useful only if a policy-specific bound on K_0 is available. In contrast, the proposed replacement by E[T(z+K_0)^R] is false: for R=1, M=2, K=1, B=2 and an unconditional repeat of the first identifier, MY=2V_1 and K_0=1-V_1. At z=2 the true probability is 1/2 but the proposed bound equals 1/4. Moreover conditioning on K_0 can induce dependence between rows even for this nonadaptive repeat policy with R=2. This rejected strengthening is not part of Theorem 1.
 
 ### Corollary 1 (one-row optimum)
 
