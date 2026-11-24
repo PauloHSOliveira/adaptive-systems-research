@@ -177,11 +177,37 @@ For Sections 5–7 assume K=1 and let L=M-1.
 
 ### Lemma 1 (terminal-repeat reduction)
 
-For any terminal objective depending only on the minimum count, restricting policies to L fresh insertions followed by one fresh or repeated insertion does not change the optimal expected objective under either complete observation interface.
+For K=1, restricting policies to L=M-1 fresh insertions followed by one fresh or repeated insertion preserves the attainable laws of the complete terminal target-row count vector under either complete observation interface. In particular the restriction does not change the optimal expected value of any real function of the terminal vector, whether monotone or not.
 
-Proof. If an admissible policy first intends an early repeat, it can use no further repeats thereafter. Replace that intended repeat with a fresh insertion, retain the intended repeated identifier, execute the necessary remaining fresh inserts and perform the retained repeat last. Conditional on the history at that first intended repeat, subsequent fresh vectors have the same independent law in the original and transformed policies, even if their labels differ. The final sums commute. The transformed policy may ignore later observations and has the same conditional terminal law. If no early repeat is intended, simply emulate the policy to the last slot. The transformed policy is causal and satisfies the cap. The reverse inequality follows by inclusion. QED.
+Proof. Fix an admissible policy pi and couple its fresh discoveries with an auxiliary array V_1,...,V_M and its complete independent private random tape U as in Section 2. Simulate pi until its first intended repeat at update tau, with tau=infinity if none occurs. Before that decision, every insertion is fresh. Define D=tau-1 when tau is finite, and D=M otherwise. Since the repeat decision at t depends only on the first t-1 discoveries and U on paths that have not repeated, the event {tau=t} is in the analytical filtration F_(t-1). Consequently D is a bounded stopping time. No independence conditioned on the realized number of discoveries is needed.
 
-This is distributional equivalence, not pathwise equality for arbitrary fixed hash maps. It requires sufficient fresh identifiers and full recall. It makes no claim for K>1.
+If tau<M, record the identity of the intended repeated key (with discovery index i*<=D), insert fresh labels in slots tau through M-1, and repeat the recorded key at M. The new labels after recording the repeat may be chosen by any fixed rule selecting unused labels; there is no need to reproduce the original policy's future label choices or observe the recorded key's collision vector. The original policy necessarily makes only fresh inserts after its single repeat. Couple both policies to the same auxiliary vectors in discovery order, with identical actions and labels before the intended repeat. Both terminal vectors then equal
+
+\[
+ \sum_{i=1}^{M-1}V_i+V_{i^*}.
+\]
+
+If tau=M or tau=infinity, leave the policy unchanged along that branch. In the latter case the terminal vector is the sum of all M fresh vectors. The transformation is causal and preserves the fixed horizon and repeat budget. The auxiliary coupling is legitimate for each marginal policy by deferred decisions. It gives pointwise equality of the terminal vector on the common discovery array and thus equality in law. The reverse optimal-value inequality follows from inclusion of the restricted policy class. QED.
+
+This does not assert pathwise equality under a common hash map fixed by identifier name, equality of the terminal frequency vector by name, preservation of trajectories, or preservation of rewards accumulated along the way. Full recall and sufficient unused identifiers are sufficient conditions for this transformation; their necessity in other formulations is not asserted.
+
+### Proposition 4 (failure of the fresh-prefix restriction with two repeats)
+
+The natural extension to general K is false for scalar feedback, even when fewer than K repeats may be used. Take R=2, B=2, M=6 and K=2. Let Pi_d be the class requiring the first d insertions to be distinct, while retaining the same upper bound of K repeats throughout and allowing fresh inserts after the prefix. Exact finite optimization gives the following optimal expected terminal minimum, in counts:
+
+| Class | Exact optimum |
+|---|---:|
+| Unrestricted | 12597/4096 |
+| Pi_3 | 12597/4096 |
+| Pi_4 (M-K fresh first) | 12565/4096 |
+
+Hence restricting the prefix to M-K fresh inserts loses 1/128 in expected counts (1/768 normalized). It suffices to establish a strict gap between Pi_3 and Pi_4; equality of the unrestricted and Pi_3 optima is an additional finite observation.
+
+For reproducibility, enumerate the 4^6 equiprobable arrays of six collision vectors. A state consists of the multiplicities by discovery index, the set of arrays consistent with the observed history, and the required fresh-prefix length d. If t updates have been made and n distinct keys discovered, a fresh insertion is available at index n+1; repeating any discovered key is admissible if t>=d and t-n<K. A nonterminal action partitions the belief set by the next scalar observation, then sums optimal continuation rewards over the parts. A terminal state sums the minimum counts over its belief. Maximizing these unnormalized sums computes the exact optimum because all arrays have equal prior weight, and the current belief size is fixed across competing actions. This recursion terminates after M updates. Causal randomization cannot improve the maximum, and fresh labels are exchangeable. See [verify_round4_counterexample.py](code/verify_round4_counterexample.py).
+
+The separation is localized to the history (0,1,2) after three fresh inserts. Its compatible three-vector prefixes are (00,11,11), (10,01,11), (10,11,01), (10,11,11), (01,10,11), (01,11,10), and (01,11,11). Each has 64 equally likely extensions. Optimized continuation sums on the 448-array belief for the four fourth-update choices (repeat first, repeat second, repeat third, fresh) are respectively 1520, 1840, 1840, 1808. The conditional gap is 32/448=1/14; multiplied by the history probability 448/4096 it gives 1/128. The other seven possible histories have identical Pi_3 and Pi_4 optimal continuation values. Even without this last equality, the local strict improvement and inclusion of the classes would establish strict separation.
+
+The standard-library verifier was executed on 2026-11-24 during Round 4 consolidation, returning PASS and reproducing the exact sums, fractions and history table. The claim is a finite exhaustive computational counterexample under the stated idealized model, not a minimality theorem, a claim for row-level feedback, or a certified original result. The reviewer inspected the recursion and arithmetic but explicitly did not run the verifier independently. This counterexample does not affect Lemma 1 or the subsequent K=1 results.
 
 ### Theorem 2 (exact row-feedback value)
 
