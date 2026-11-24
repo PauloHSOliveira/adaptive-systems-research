@@ -27,7 +27,29 @@ Consider a finite domain with at least M non-target identifiers, a target x* cho
 
 Each stream contains exactly M unit inserts. A repeat is any insertion after the first occurrence of the same identifier. At most K repeats are allowed on *each realization*, with 0<=K<M. The policy can select keys based only on permitted observations. This is a fixed-target full-recall decision model, not the memoryless adversary model and not the standard unrestricted adversarial-streaming model.
 
-Let V_i be the R-dimensional collision vector of the i-th fresh identifier relative to x*. By deferred decisions, the fresh vectors can be coupled to M independent product Bernoulli(p) vectors, conditional on the target hashes, including unused analysis-only vectors. This remains true under causal fresh-label selection: no unseen candidate's assignment is known, and the label is chosen before its assignment is revealed. Let C_j be the final target bucket counts and define
+### Lemma 0 (deferred decisions at fresh-identifier times)
+
+Let H* denote the target hash vector and U the complete independent private random tape of the policy. On an auxiliary probability space, sample
+
+\[
+ V_1,\ldots,V_M\overset{\mathrm{iid}}{\sim}\operatorname{Bernoulli}(p)^{\otimes R}
+\]
+
+independently of H* and U. At the first insertion of each distinct non-target identifier, assign the next unused vector; on a repeat, use that identifier's already assigned vector. Since a fresh label is chosen using only previous permitted observations and private randomness, and its hash assignments have not been disclosed, deferred decisions give precisely the conditional product Bernoulli law of the original ideal-hash model. The auxiliary construction therefore reproduces the joint law of the actual insertions and target-counter observations. Unused vectors serve only as analytical padding.
+
+Write N for the total number of distinct identifiers inserted over the fixed M-update horizon. The realized collision vectors are the prefix V_1,...,V_N. For the analytical filtration
+
+\[
+ \mathcal F_n=\sigma(H^*,U,V_1,\ldots,V_n),\qquad 0\le n\le M,
+\]
+
+the event {N<=n} is measurable: simulate the policy with the first n assigned vectors until it either completes all M updates or requests a new identifier requiring V_(n+1). The latter request is determined before revealing that next vector. Thus N is a bounded stopping time in this filtration. This is an enlarged analytical filtration, not the information available to the actual scalar-feedback policy.
+
+Independence is asserted for the complete auxiliary array, **not for the realized prefix conditional on N**. For instance, take R=1, B=2, M=3 and K=1. Insert two distinct keys, then repeat the first if V_1=V_2 and otherwise insert a third distinct key. The second target count suffices to implement this decision. Then {N=2}={V_1=V_2}, and conditional on N=2 each of V_1,V_2 has marginal probability 1/2 of being one, while their joint probability of both being one is 1/2 rather than 1/4. In particular, no argument below assumes independence of adaptive final counts or conditions the auxiliary row envelope on N.
+
+The ideal-hash assumption excludes all information channels revealing uninserted candidate hashes. Pairwise independence of hash assignments is insufficient. For example, over F_2^2 the pairwise independent family h_(a,b)(x)=a dot x+b (uniform independent a and b) has target 0 and three distinct non-target keys (1,0), (0,1), (1,1). Their collision indicators satisfy V_3=1_{V_1=V_2}, violating mutual independence. For the fixed horizon, (M+1)-wise independent uniform hash assignments within each row, with independent row families and the same disclosure restrictions, are sufficient by the same deferred-decisions argument (the target plus at most M distinct keys). This is a sufficient condition, not a necessary one or an equivalence between hash-family independence and collision-vector independence. The manuscript retains fully random hashes as its stated model.
+
+Let C_j be the final target bucket counts and define
 
 \[
  Y=\frac{\min_{1\le j\le R} C_j}{M}.
