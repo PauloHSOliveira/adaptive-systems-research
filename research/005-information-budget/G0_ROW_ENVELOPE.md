@@ -3,6 +3,8 @@
 **Status:** Restricted mathematical feasibility result; G0 novelty clearance incomplete. No approved G1 or production benchmark.  
 **Predecessor:** [G0-C operational model](G0_OPERATIONAL_MODEL.md).
 
+> **G0-E follow-up:** [Feedback-gap decomposition](G0_FEEDBACK_GAP.md) provides an exact row-observation comparator for one repeat and arbitrary row count, and separates information loss from the row-envelope relaxation in the smallest nontrivial two-row case. The general scalar-feedback characterization and novelty clearance remain open.
+
 ## 1. Scope and definitions
 
 Retain the G0-C model: classical additive insertion-only Count-Min Sketch (CMS), an absent fixed target chosen independently of the hashes, R rows, B >= 2 buckets, fully independent uniform hashes per identifier and row, M >= 1 unit inserts, no prior observations of fresh keys, no external disclosure, no resets or overflow, at most K repeats on every realization (0 <= K < M), and enough identifiers to insert M distinct keys. A repeat is any insertion of an identifier already inserted in this stream. The policy may observe exact target estimates at fixed checkpoints, and has arbitrary private recall. All probabilities include the random hash map and private policy randomness independent of it.
