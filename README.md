@@ -23,6 +23,7 @@ Each study separates mathematical claims, experimental results, implementation a
 - **Study 003 (closed):** [technical report](research/003-adversarial-streaming/paper.md) · [claim ledger](research/003-adversarial-streaming/CLAIMS.md) · [reproducibility checks](research/003-adversarial-streaming/README.md).
 - **Study 004 — closed at G0:** [original proposal](research/004-proposal.md) · [prior-art audit](research/004-gate0/PRIOR_ART_AUDIT.md) · [final G0 decision and mathematical checks](research/004-gate0/G0_DECISION.md). **H4-A2 not approved as original research; CCS 2023 replication remains a separate option.**
 - **Study 003 continuous verification:** [GitHub Actions workflow](.github/workflows/research-003-validation.yml) · [latest run](https://github.com/PauloHSOliveira/adaptive-systems-research/actions/workflows/research-003-validation.yml).
+- **Proposed study 005:** [Information, frequency concentration, and adaptive CMS error](research/005-information-budget/G0_PROPOSAL.md) · [finite arithmetic check](research/005-information-budget/code/verify_finite_selectors.py). **G0 mathematical baseline established; novelty and operational model not approved.**
 - **Research standards:** [Experimental research protocol](docs/research-protocol.md).
 
 ### H-DATE-2: key distinction
