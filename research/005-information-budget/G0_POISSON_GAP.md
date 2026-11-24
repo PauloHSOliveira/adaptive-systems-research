@@ -4,6 +4,8 @@
 **Status:** Restricted mathematical result; originality not certified; formal G1 remains blocked.  
 **Predecessor:** [G0-E: Feedback-gap decomposition](G0_FEEDBACK_GAP.md).
 
+> **G0-G follow-up:** [Exact Poisson-regime characterization](G0_POISSON_EXACT.md) establishes the limit of M(O-S) in the same model and justifies convergence of optimal decision values. The lower bound in this report remains valid, but is superseded as the best characterization. Independent review and originality clearance remain pending.
+
 ## 1. Model and question
 
 Use the G0-E model without modification: classical additive insertion-only Count-Min Sketch, two rows (R=2), B>=2 buckets per row, a fixed absent target independent of the fully random hashes, M total unit insertions, at most one repeat (K=1), no pre-probed identifiers or other hash disclosures, and full scalar feedback after each insertion except the last. The policy has perfect recall and enough available identifiers. Every fresh identifier's two collision indicators are independent Bernoulli(p), p=1/B, conditional on prior revelations and target hashes. No production system is involved.
