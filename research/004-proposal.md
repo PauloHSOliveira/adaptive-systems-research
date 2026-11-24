@@ -16,6 +16,8 @@ keywords:
 
 # Research 004 — Experimental Audit of Adaptive Frequency Estimation
 
+> **Final decision (2026-11-24): G0 CLOSED — NO-GO for H4-A2 as original research.** The earlier HOLD status below is historical and superseded by the [final G0 decision](004-gate0/G0_DECISION.md). No G1 or confirmatory experiment was approved; independent CCS 2023 replication remains a separately scoped option.
+
 **Stage:** Proposal / targeted prior-art audit. **No Research 004 experiment has yet been run.**  
 **G0 audit outcome (2026-11-23): NOT PASSED / HOLD.** **Further G0 review:** an [anonymous, related CMS preprint audit](004-gate0/KDD_PREPRINT_AUDIT.md) now documents strong overlap in value-based adaptive attacks, but no authenticated identity with the final KDD paper. The original H4-A design is superseded by the [H4-A2 reformulation](004-gate0/H4-A2_REFORMULATION.md), which explicitly tests feedback-mediated differences in **terminal target error** across two time permutations of the **same benign insertion multiset**. This refined candidate **also remains unapproved**. The initial H4-A design is **not authorized for G1**. See the [pinned prior-art and experiment audit](004-gate0/PRIOR_ART_AUDIT.md) and [source comparison matrix](004-gate0/SOURCE_MATRIX.csv). The preliminary preference for H4-A below reflects the **pre-audit proposal** and is superseded by this G0 decision.  
 **Decision:** Prioritize candidate H4-A **conditionally**, after an upstream-experiment overlap check.  
