@@ -138,13 +138,38 @@ with T(u)=0 for u>M. The second term is useful only if a policy-specific bound o
 
 ### Corollary 1 (one-row optimum)
 
-When R=1 and observations are complete, the envelope is attained for every monotone terminal objective. With full row information, each fresh collision indicator is known as soon as it is inserted. If a collision exists among L_0 fresh identifiers, the remaining K slots can attain K collisions. If the first collision occurs later, the total possible collision count is M-J_1+1, achieved without exceeding the cap. If none occurs the result is zero. This attains W_1. Summing its tails,
+When R=1 and observations are complete, there exists a single policy attaining the envelope simultaneously for every nondecreasing terminal objective. Here "single" denotes a common attaining policy, not uniqueness among optimal policies.
+
+For a constructive proof, insert L_0 distinct identifiers first. If K=0, there are no decisions remaining and C_1=W_1=X_1. Otherwise, the available scalar increments identify the collision indicator of each of these insertions. If X_1>0, perform K repeats of a known colliding identifier, yielding C_1=X_1+K. If X_1=0, continue inserting fresh identifiers until the first collision or the horizon. When the first collision is at fresh index J_1>L_0, repeat that identifier for the remaining M-J_1 slots; this is strictly less than K, and C_1=M-J_1+1. If J_1=M no feedback or further decision is needed. If no collision occurs, C_1=0. Thus the policy is causal, respects the hard budget on every realization, and attains W_1 pointwise in the auxiliary coupling. By Theorem 1, for every nondecreasing function phi on {0,...,M},
+
+\[
+ \sup_\pi \mathbb E[\phi(C_1^\pi)]=\mathbb E[\phi(W_1)].
+\]
+
+In particular every terminal tail is simultaneously optimized. This argument gives no corresponding guarantee for nonmonotone objectives or objectives involving the trajectory.
+
+Summing the integer tails gives
+
+\[
+\begin{aligned}
+\mathbb E[W_1]
+ &= K+1-\frac{a^{L_0}(1-a^{K+1})}{p}
+    +L_0p-(1-a^{L_0})\\
+ &= L_0p+K-\frac{a^{L_0+1}(1-a^K)}{p}.
+\end{aligned}
+\]
+
+Consequently,
 
 \[
  S=O=E=\frac{L_0p+K-a^{L_0+1}(1-a^K)/p}{M}.
 \]
 
-Without observations the one-row mean is p for every admissible fixed-mass policy. In multiple rows the envelope relaxation does not require a common repeat choice across rows and is generally loose.
+The attaining policy need not be structurally unique. For R=1, B=2, M=3, K=1, compare the above policy (two fresh inserts, followed by a repeat of a known colliding key if available) with a policy that, upon a first collision, repeats that key in the second slot and inserts a second fresh identifier in the third slot; otherwise it follows the original rule. Both attain W_1 for every auxiliary realization. On V_1=1,V_2=0, an event of probability 1/4, their count trajectories are respectively (1,1,2) and (1,2,2). This establishes nonuniqueness beyond tie-breaking. No exhaustive classification of attaining policies is claimed.
+
+With fixed p>0 and K/M tending to rho in [0,1], the normalized optimum converges to p+(1-p)rho. Indeed the nonnegative correction a^(L_0+1)(1-a^K)/(pM) is bounded by 1/(pM) uniformly in L_0 and K. The same vanishing-correction statement holds whenever pM tends to infinity. For varying p, this sufficient condition is not necessary, and the correction is not uniformly Theta(1/(pM)); for instance it is identically zero when K=0. In the sparse scaling pM tending to a positive constant and K/M tending to a strictly interior rho, the correction need not vanish.
+
+Without observations the one-row mean is p for every admissible fixed-mass policy independent of the hashes. This does not imply equality of the terminal distributions. In multiple rows the envelope relaxation does not require a common repeat choice across rows and is generally loose.
 
 ## 5. One repeat: exact row-feedback comparator
 
