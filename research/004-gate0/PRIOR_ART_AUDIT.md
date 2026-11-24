@@ -1,5 +1,7 @@
 # Research 004 — Gate G0: Prior-Art and Experiment Audit
 
+> **Final decision (2026-11-24): G0 CLOSED — NO-GO for H4-A2 as original research.** The earlier HOLD status below is historical and superseded by the [final G0 decision](G0_DECISION.md). No G1 or confirmatory experiment was approved; independent CCS 2023 replication remains a separately scoped option.
+
 **Audit date:** 2026-11-23  
 **Hypothesis:** H4-A — workload ordering / abrupt frequency-distribution shift × public-feedback adaptivity for Count-Min Sketch (CMS).  
 **Gate decision:** **NOT PASSED — HOLD AND REFORMULATE**. No approval of originality or G1 implementation.
