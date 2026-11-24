@@ -1,5 +1,7 @@
 # H4-A2 — Feedback-Mediated Attack Trajectories Under Temporal Order Permutations
 
+> **Final decision (2026-11-24): G0 CLOSED — NO-GO for H4-A2 as original research.** The earlier HOLD status below is historical and superseded by the [final G0 decision](G0_DECISION.md). No G1 or confirmatory experiment was approved; independent CCS 2023 replication remains a separately scoped option.
+
 **Study:** Research 004 | **Date:** 2026-11-23
 **Status:** Candidate reformulation within G0; NOT an approved original research result.
 **Supersedes:** The initial drift × adaptivity interpretation in the original [004 proposal](../004-proposal.md).
