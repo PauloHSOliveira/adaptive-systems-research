@@ -5,6 +5,8 @@
 **Decision:** Proceed only with a narrow prior-art and operational-information audit; no originality sign-off, no full benchmark, and no new defense claim.  
 **Predecessor:** [Study 004 G0 decision](../004-gate0/G0_DECISION.md).
 
+> **G0-C update (2026-11-24):** [Operational model and exact finite diagnostic](G0_OPERATIONAL_MODEL.md) now gives a fixed-target transcript-size bound and a deterministic reuse-budget binomial tail bound. Exact finite-policy optimization passed 36 tail checks and nine mean checks. This passes the restricted operational-model gate, not novelty clearance. G0-B remains incomplete and formal G1 is not approved.
+
 ## 1. Research question
 
 Can we establish a useful, nontrivial quantitative relationship between the information disclosed by public estimator responses, the concentration of final inserted frequencies (including reuse of identifiers), and terminal estimation error in a fixed-hash Count-Min Sketch (CMS)?
