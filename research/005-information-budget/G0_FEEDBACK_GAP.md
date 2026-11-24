@@ -4,6 +4,8 @@
 **Status:** Restricted mathematical feasibility result for H5-B. No G1 approval or verified originality claim.  
 **Predecessor:** [G0-D row envelope](G0_ROW_ENVELOPE.md).
 
+> **G0-F follow-up:** [Poisson-regime result](G0_POISSON_GAP.md) proves a nonvanishing lower bound for the relative information gap when R=2, K=1 and (M-1)/B approaches a positive constant. The M=3 gap fraction p^2 below must not be extrapolated to this joint scaling. The exact scalar optimum and novelty clearance remain unresolved.
+
 ## 1. Scope
 
 Retain the classical additive insertion-only CMS with a fixed absent target, R rows, B buckets, independent uniform hashes, and M unit insertions. No candidate is pre-queried, no hash internals are initially revealed, and the domain has at least M admissible non-target identifiers. Let p=1/B, a=1-p. Restrict this audit to **at most one repeat (K=1)** and observations after each insertion except the last. Each previously unseen identifier has an independent R-dimensional Bernoulli(p) collision vector. Only terminal normalized collision error Y is optimized, not intermediate regret or another objective.
