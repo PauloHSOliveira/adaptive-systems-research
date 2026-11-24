@@ -4,6 +4,8 @@
 **Status:** Restricted analytical characterization, derived and checked internally; originality not certified; formal G1 remains blocked.  
 **Predecessor:** [G0-F nonvanishing relative feedback gap](G0_POISSON_GAP.md).
 
+> **Consolidation and correction:** [working manuscript](paper.md) and [internal review audit](REVIEW_AUDIT.md) record the complete proof and reproducibility rerun. The finite values formerly described as conditional no-double last-visible regret are only the excursion contribution, one half of Pr(C|D0). The full conditional regret also includes p^2 Pr(c1=c2>0|D0). This correction is at most p^2 and does not alter the asymptotic result. See the [additional verifier](code/audit_exact_gap.py). Independent review remains pending.
+
 ## 1. Scope
 
 Keep the G0-F model: classical additive insertion-only Count-Min Sketch, two rows (R=2), B buckets per row, a fixed absent target independent of the fully random hashes, M unit insertions, at most one repeat (K=1), full scalar feedback after each insertion except the last, perfect recall, enough fresh identifiers, no pre-probed keys, no external hash leakage, and no resets or overflow. Let L=M-1 and p=1/B. We study B tending to infinity with Lp tending to a fixed lambda in (0,infinity).
@@ -85,7 +87,7 @@ This also gives the scalar optimum in counts if desired: the preterminal minimum
 The standard-library verifier was executed locally on 2026-11-24:
 - 15 exact combinatorial checks for marked-walk lengths 0 through 14: every sign sequence enumerated and the last-zero event count verified.
 - 28 exact finite decision comparisons, L=2..8 and B in {2,3,4,8}, enumerating all 4^L collision-vector sequences with integer probability weights and grouping by the entire scalar history. The checks verify last-visible value <= scalar optimum <= row-aware optimum, plus the finite bound eta. All passed.
-- Numerical evaluation of the convergent Poisson series and the conditional no-double last-visible regret at larger B. The latter is not the exact finite scalar optimum and is not mislabeled as such.
+- Numerical evaluation of the convergent Poisson series and the conditional no-double excursion contribution at larger B. The latter is not the exact finite scalar optimum and is not mislabeled as such.
 
 | lambda | G(lambda), counts | D(lambda), counts | Exact limiting relative information share |
 |--:|--:|--:|--:|
@@ -97,7 +99,7 @@ The standard-library verifier was executed locally on 2026-11-24:
 | 3 | 0.163780537 | 0.164178680 | 49.9393% |
 | 5 | 0.141940633 | 0.127787937 | 52.6235% |
 
-For lambda=1, the conditional no-double last-visible regret converges numerically from 0.06174642 (L=B=16) to 0.06778000 (L=B=4096). The proved error bound between last-visible and optimal values justifies the same limit; these evaluations do not measure the exact finite optimum for large B.
+For lambda=1, the conditional no-double excursion contribution converges numerically from 0.06174642 (L=B=16) to 0.06778000 (L=B=4096). The proved error bound between last-visible and optimal values justifies the same limit; these evaluations do not measure the exact finite optimum for large B.
 
 Run from the repository root:
 
