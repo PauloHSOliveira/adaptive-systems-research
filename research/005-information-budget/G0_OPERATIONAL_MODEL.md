@@ -3,6 +3,8 @@
 **Date:** 2026-11-24
 **Decision:** G0-C passed for a restricted, precisely specified operational model. G0 novelty clearance remains incomplete. An exact finite-model diagnostic was run, not a production benchmark or an approved confirmatory G1 study.
 
+> **G0-D follow-up:** [Refined row envelope and exact one-row optimum](G0_ROW_ENVELOPE.md) strengthens the repeat-budget tail bound for low thresholds and proves equality for one row under complete feedback. The multi-row optimum and novelty clearance remain unresolved. The diagnostic used a different finite domain from Section 4.
+
 ## 1. Model and scope
 
 Let H be an ideal fully random hash map, independently uniform on B buckets for each identifier in each of R rows. A conventional additive CMS starts at zero and processes exactly M positive unit inserts. No deletions, resets, conservative updates, overflow, external hash disclosure or side channel. Fix the absent target x* independently of H before the interaction; it is never inserted. All allowed identifiers other than x* have independent hash assignments conditional on the target hash.
