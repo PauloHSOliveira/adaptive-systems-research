@@ -207,7 +207,7 @@ For reproducibility, enumerate the 4^6 equiprobable arrays of six collision vect
 
 The separation is localized to the history (0,1,2) after three fresh inserts. Its compatible three-vector prefixes are (00,11,11), (10,01,11), (10,11,01), (10,11,11), (01,10,11), (01,11,10), and (01,11,11). Each has 64 equally likely extensions. Optimized continuation sums on the 448-array belief for the four fourth-update choices (repeat first, repeat second, repeat third, fresh) are respectively 1520, 1840, 1840, 1808. The conditional gap is 32/448=1/14; multiplied by the history probability 448/4096 it gives 1/128. The other seven possible histories have identical Pi_3 and Pi_4 optimal continuation values. Even without this last equality, the local strict improvement and inclusion of the classes would establish strict separation.
 
-The standard-library verifier was executed on 2026-11-24 during Round 4 consolidation, returning PASS and reproducing the exact sums, fractions and history table. The claim is a finite exhaustive computational counterexample under the stated idealized model, not a minimality theorem, a claim for row-level feedback, or a certified original result. The reviewer inspected the recursion and arithmetic but explicitly did not run the verifier independently. This counterexample does not affect Lemma 1 or the subsequent K=1 results.
+The standard-library verifier was executed locally on 2026-11-25, returning PASS and reproducing the exact sums, fractions and history table. The claim is a finite exhaustive computational counterexample under the stated idealized model, not a minimality theorem, a claim for row-level feedback, or a certified original result. The reviewer inspected the recursion and arithmetic but explicitly did not run the verifier independently. This counterexample does not affect Lemma 1 or the subsequent K=1 results.
 
 ### Theorem 2 (exact row-feedback value)
 
@@ -226,7 +226,22 @@ For two rows let b_s=Pr(Binomial(L,p)=s), G_z=Pr(Binomial(L,p)>=z), and d_s=bino
  b_s^2[1-(1-p^2)d_s].
 \]
 
-This comparator respects the common repeat budget; it grants strictly more information than scalar feedback. It is an exact intermediate quantity, not a production interface recommendation.
+The factor beta_s is a conditional probability of raising a unique bottleneck with total s, not an unconditional event probability. In particular d_0=1 and beta_0=p. Row-count increments reveal the individual fresh vectors, so A and J are measurable in the row-feedback interface.
+
+This comparator respects the common repeat budget; it grants access to a richer observation interface than scalar feedback. It is an exact intermediate quantity, not a production interface recommendation.
+
+### Corollary (exact shared-budget gap for arbitrary row count)
+
+For any R>=1 and K=1,
+
+\[
+ \boxed{M(E-O)=\mathbb E[
+ \mathbf 1_{\{m>0\}\cap A^c}(1-p^{|J|})].}
+\]
+
+Proof. On the same auxiliary array, the row envelope is W_j=c_j+1 if c_j>0 and W_j=V_(L+1)^(j) otherwise. If m=0, A is impossible, and conditional on the first L vectors the expected envelope minimum and the optimal row-feedback terminal minimum both equal p^|J|: all zero rows must receive a fresh collision. If m>0, the envelope minimum is m+1. Theorem 2 gives the row-feedback conditional mean m+1 on A and m+p^|J| on A^c. Taking expectations proves the identity. QED.
+
+For R=1 the gap is identically zero. For R=2 only positive ties with disjoint collision supports contribute, as made explicit in Theorem 3. For R>=3, pairwise support intersections need not imply a common intersection of all bottleneck-row supports. The formula is finite and assumes one possible repeat, not multiple repeats. It quantifies the slack of this particular independent-row envelope, not an operational security metric.
 
 ### Proposition 3 (smallest nontrivial two-row instance)
 
@@ -237,7 +252,7 @@ For R=2, M=3, K=1,
  E-O=2p^2(1-p)^2(1-p^2)/3.
 \]
 
-Proof. Apply Lemma 1. If the first scalar value is one then a double-collision key is known; if the second scalar value is zero, a fresh last key is optimal under both interfaces. For the remaining history (0,1), the first two vectors are (00,11), a singleton followed by 11, or opposite singletons, with respective unconditional probabilities a^2p^2, 2p^3a, 2p^2a^2. The row-aware increment succeeds certainly in the first two cases and with probability p^2 in the third. Scalar feedback chooses the second key, since the weighted advantage of that choice over a fresh vector is p^2a^3(1+3p)>0 and repeating the first never succeeds. The lost increment is therefore 2p^4a^2. The row envelope overstates the attainable shared-repeat increment only for opposite singletons, where the gap is 1-p^2. Divide by M. QED.
+Proof. Apply Lemma 1. If the first scalar value is one then a double-collision key is known; if the second scalar value is zero, a fresh last key is optimal under both interfaces. For the remaining history (0,1), the first two vectors are (00,11), a singleton followed by 11, or opposite singletons, with respective unconditional probabilities a^2p^2, 2p^3a, 2p^2a^2. The row-aware increment succeeds certainly in the first two cases and with probability p^2 in the third. The five concrete patterns are not conditionally equiprobable unless p=1/2. Their unconditional weights are a^2p^2, p^3a, p^3a, p^2a^2, p^2a^2. The weighted gains of repeating the first, repeating the second, and inserting fresh are respectively 0, a^2p^2+2p^3a, and 3a^2p^4+2p^4a. The advantage of the second over fresh is p^2a^3(1+3p)>0, proving scalar optimality throughout 0<p<1. The lost increment is therefore 2p^4a^2. The row envelope overstates the attainable shared-repeat increment only for opposite singletons, where the gap is 1-p^2. Divide by M. QED.
 
 In this fixed-size example the share (O-S)/(E-S) equals p^2. This is not the answer in a joint growing-stream regime.
 
@@ -313,7 +328,7 @@ The absolute normalized difference is O(1/M), because at most one terminal count
 
 The computation is based on exact finite collision-pattern enumeration and belief-state optimization, not measurement of a production sketch. In a finite domain of M keys, assign each R*M-bit collision pattern integer weight (B-1)^(number of zero entries) and denominator B^(R*M). A belief state retains the patterns compatible with past observations and the current frequency vector. At a new observation, split the weighted pattern set by the reported answer; maximize expected terminal reward over admissible next actions. Independent randomization cannot increase a linear maximum. Unseen keys are exchangeable; only one fresh representative action need be considered. For K=1 Lemma 1 permits enumerating L fresh vectors, grouping by their scalar histories, then optimizing the final decision per history. Means and different tail objectives are optimized separately where appropriate.
 
-All six published scripts were re-executed on Python 3.13.5, with source bytes matched to Git blob identifiers from revision eb2e9f5b4f8e6fd9210392ae9a7dc07928b1a9e8. All exited zero. See [reproduction audit](REVIEW_AUDIT.md) for hashes, counts and limitations. The extra finite tie-correction check in Theorem 4 passed 28 exact conditional identities.
+The [historical reproduction audit](REVIEW_AUDIT.md) records prior script runs and finite tie-correction checks; those historical execution and source-hash claims were not independently re-established in the present consolidation and should not be treated as fresh execution evidence. On 2026-11-25, the local round-four counterexample verifier was executed with PASS, reproducing the exact 1/128 count gap. A new standard-library rational enumeration [verify_round5_general_gap.py](code/verify_round5_general_gap.py) was also executed with PASS: nine small-instance checks (R=2, L=2, B=2,...,10) and 27 arbitrary-row identity checks (R,L=1,2,3; B=2,3,4), with three overlapping parameter triples. The external-model mathematical review did not independently execute either verifier. These finite computations do not certify novelty or replace the proofs.
 
 Selected exact normalized mean values (R=2, B=2, K=1):
 
