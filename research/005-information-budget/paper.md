@@ -292,7 +292,7 @@ Proof.
 
 Let A be the event that the terminal difference is nonzero and the terminal minimum positive. On A the row-aware final increment can be one with certainty. On its complement no single-collision prior vector covers all bottleneck rows, and a fresh vector is required, with success probability at most p.
 
-**Step 2 — Excursion signs.** Conditional on the entire absolute walk and active positions, signs of its excursions from zero (including the unfinished last excursion) are independent fair signs. Flipping any excursion's sign preserves the absolute walk, the visible slots and the probability of the path. Returning steps belong to the excursion they complete. On A, a visible slot within the final unfinished excursion necessarily belongs to the terminal bottleneck row. A visible slot in an earlier excursion belongs to that row with conditional probability 1/2 by the independent sign symmetry. Consequently, among visible choices the last visible slot has the maximal conditional expected increment; it is an admissible function of the scalar transcript. Define C as A together with the absence of visible steps in the final excursion. The last-visible comparator has expected increment on A equal to Pr(A|D0)-Pr(C|D0)/2. If no visible slot exists, use a fresh final key.
+**Step 2 — Excursion signs.** Conditional on the entire absolute walk and active positions, signs of its excursions from zero (including the unfinished last excursion) are independent fair signs. Flipping any excursion's sign preserves the absolute walk, the visible slots and the probability of the path. More precisely, conditional on D0, a fixed active-position set and absolute walk with e excursions admits exactly 2^e equally weighted orientation assignments. The independent private tape does not change those weights; the scalar transcript is determined by the active positions and the absolute walk. Returning steps belong to the excursion they complete. On A, a visible slot within the final unfinished excursion necessarily belongs to the terminal bottleneck row. A visible slot in an earlier excursion belongs to that row with conditional probability 1/2 by the independent sign symmetry. Consequently, among visible choices the last visible slot has the maximal conditional expected increment; it is an admissible function of the scalar transcript. Define C as A together with the absence of visible steps in the final excursion. The last-visible comparator has expected increment on A equal to Pr(A|D0)-Pr(C|D0)/2. If no visible slot exists, use a fresh final key.
 
 For precision at finite L, the *actual* conditional row-aware minus last-visible increment is
 \[
@@ -314,6 +314,40 @@ The first term allows any terminal increment on the complement of D0. Taking w=f
 \]
 Since the conditional expression is bounded by one, convergence of the discrete binomial distribution to Poisson(2lambda) transfers its expectation (truncate N using its bounded mean). The finite tie correction is at most p^2 and vanishes; so does the contribution from the complement of D0 and the decision approximation eta. Substituting the Poisson probabilities into one half of Pr(C) gives the claimed nonnegative convergent double series. QED.
 
+### Proposition (finite visible-choice symmetry with unequal row probabilities)
+
+The visible-choice comparison and the finite conditional identity in Step 2 extend to two independent rows with fixed per-key collision probabilities p_1,p_2 in (0,1), not necessarily equal. Retain K=1, the same fresh-key independence assumptions and complete scalar feedback. Let D0 exclude double collisions in the first L fresh vectors. Conditional on D0, activity has probability
+
+\[
+ r=\frac{p_1(1-p_2)+(1-p_1)p_2}{1-p_1p_2},
+\]
+
+and the independent marks have positive-sign probability
+
+\[
+ \theta=\frac{p_1(1-p_2)}{p_1(1-p_2)+(1-p_1)p_2}.
+\]
+
+Condition on the active positions and the complete absolute walk, and, if relevant, on the independent private random tape. Each completed excursion of length 2k has k positive and k negative marks in either orientation, hence the two orientations have identical weight theta^k(1-theta)^k. The final unfinished excursion, if present, has length ell and terminal absolute height d>0. Its positive and negative orientations have respective weights proportional to theta^d and (1-theta)^d after factoring out the common (theta(1-theta))^((ell-d)/2). Thus
+
+\[
+ \Pr(\sigma_f=+1\mid\mathcal G,D0)
+ =\frac{\theta^d}{\theta^d+(1-\theta)^d}.
+\]
+
+The conditional orientation law factorizes across excursions because each compatible signed walk is uniquely specified by its excursion orientations and its mark weight is their product. Completed orientations are independent fair signs and independent of the potentially biased final orientation. A visible slot in an earlier completed excursion therefore matches the final bottleneck with probability 1/2, regardless of the final orientation bias. A visible slot in the unfinished final excursion matches it with certainty. The last-visible rule remains optimal among visible choices, conditional on the analytical information.
+
+For example, three active marks can give absolute walk (0,1,0,1). The four compatible signed paths (+,-,+), (+,-,-), (-,+,+), (-,+,-) have respective last-visible success indicators 1,0,0,1. The success probability is 1/2 after averaging over the compatible excursion orientations; it is not a random success probability on a fixed fully signed path.
+
+Writing C for the same event as in Step 2, the exact conditional identity becomes
+
+\[
+ \mathbb E[\Delta_O-\Delta_{\rm LV}\mid D0]
+ =\tfrac12\Pr(C\mid D0)+p_1p_2\Pr(c_1=c_2>0\mid D0).
+\]
+
+Indeed, at zero minimum both policies use a fresh key; at a positive unequal minimum the preceding excursion comparison applies; and at a positive tie no prior single-collision key covers both rows, so row feedback prefers a fresh key with joint collision probability p_1p_2 while the last-visible repeat cannot raise the minimum. The new vector is independent of D0 and the prefix. This is a finite conditional extension, not a claim of unconditional last-visible optimality or an asymmetric sparse-limit theorem. The symmetric Theorem 4 retains its original assumptions.
+
 ### Corollary 2 (relative value of the minimum-only interface)
 
 Both limiting functions are strictly positive for lambda>0. Therefore
@@ -328,7 +362,7 @@ The absolute normalized difference is O(1/M), because at most one terminal count
 
 The computation is based on exact finite collision-pattern enumeration and belief-state optimization, not measurement of a production sketch. In a finite domain of M keys, assign each R*M-bit collision pattern integer weight (B-1)^(number of zero entries) and denominator B^(R*M). A belief state retains the patterns compatible with past observations and the current frequency vector. At a new observation, split the weighted pattern set by the reported answer; maximize expected terminal reward over admissible next actions. Independent randomization cannot increase a linear maximum. Unseen keys are exchangeable; only one fresh representative action need be considered. For K=1 Lemma 1 permits enumerating L fresh vectors, grouping by their scalar histories, then optimizing the final decision per history. Means and different tail objectives are optimized separately where appropriate.
 
-The [historical reproduction audit](REVIEW_AUDIT.md) records prior script runs and finite tie-correction checks; those historical execution and source-hash claims were not independently re-established in the present consolidation and should not be treated as fresh execution evidence. On 2026-11-25, the local round-four counterexample verifier was executed with PASS, reproducing the exact 1/128 count gap. A new standard-library rational enumeration [verify_round5_general_gap.py](code/verify_round5_general_gap.py) was also executed with PASS: nine small-instance checks (R=2, L=2, B=2,...,10) and 27 arbitrary-row identity checks (R,L=1,2,3; B=2,3,4), with three overlapping parameter triples. The external-model mathematical review did not independently execute either verifier. These finite computations do not certify novelty or replace the proofs.
+The [historical reproduction audit](REVIEW_AUDIT.md) records prior script runs and finite tie-correction checks; those historical execution and source-hash claims were not independently re-established in the present consolidation and should not be treated as fresh execution evidence. On 2026-11-25, the local round-four counterexample verifier was executed with PASS, reproducing the exact 1/128 count gap. A new standard-library rational enumeration [verify_round5_general_gap.py](code/verify_round5_general_gap.py) was also executed with PASS: nine small-instance checks (R=2, L=2, B=2,...,10) and 27 arbitrary-row identity checks (R,L=1,2,3; B=2,3,4), with three overlapping parameter triples. The external-model mathematical review did not independently execute either verifier. The standard-library verifier [verify_round6_excursions.py](code/verify_round6_excursions.py) was executed locally on 2026-11-25 with PASS: 28 configurations (L=1,...,7 and (B_1,B_2)=(2,2),(3,3),(2,3),(5,2)) and 3,656 absolute-walk/active-position groups with visible slots. It checked the conditional loss identity and last-visible comparison using exact integer weights and rational arithmetic; the mathematical reviewer did not independently execute it. These finite computations do not certify novelty or replace the proofs.
 
 Selected exact normalized mean values (R=2, B=2, K=1):
 
